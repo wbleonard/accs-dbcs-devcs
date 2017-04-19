@@ -121,26 +121,26 @@ You will also notice that the package command builds the zip artifact that requi
 
 - Create a New free-style Build Job named **Database DevOps**
 
- 	![](https://github.com/OracleNATD/accs-dbcs-devcs/blob/master/images/new-job.png)
+ 	![](https://github.com/wbleonard/accs-dbcs-devcs/blob/master/images/new-job.png)
 
 	- Under **Source Control**, select the accs-dbcs-devcs.git repository:
- 		![](https://raw.githubusercontent.com/OracleNATD/accs-dbcs-devcs/master/images/source-control.png)
+ 		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/source-control.png)
 
 	- Under **Triggers** select Based on SCM polling schedule and set the Schedule to `*****`:
 	 
-		![](https://raw.githubusercontent.com/OracleNATD/accs-dbcs-devcs/master/images/triggers.png)
+		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/triggers.png)
 
 	- Under **Environment** select Connect Oracle Maven Repository and enter your OTN credentials:
 	 
-		![](https://raw.githubusercontent.com/OracleNATD/accs-dbcs-devcs/master/images/environment.png)
+		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/environment.png)
 
 	- Under **Build Steps** add an Invoke Maven 3 Build Step:
 	 
-		![](https://raw.githubusercontent.com/OracleNATD/accs-dbcs-devcs/master/images/build-steps.png)	
+		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/build-steps.png)	
 
 	- Under **Post Build**, select Archive the Artifacts and set the Files to Archive to `**/target/*.zip`:
  
-		![](https://raw.githubusercontent.com/OracleNATD/accs-dbcs-devcs/master/images/post-build.png)	
+		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/post-build.png)	
 
 	- **Save** and click **Build Now** to validate the build configuration:
 	
