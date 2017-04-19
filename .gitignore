@@ -1,0 +1,7 @@
+target/
+*.zip
+nb-configuration.xml
+nbactions.xml
+deployment.json
+deploy.sh
+dependency-reduced-pom.xml

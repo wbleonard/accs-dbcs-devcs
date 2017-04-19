@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+    <id>ACCS</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <files>
+        <file>
+            <source>manifest.json</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+    </files>
+    <fileSets>
+        <fileSet>
+            <directory>target</directory>
+            <outputDirectory>target</outputDirectory>
+            <includes>
+                <include>accs-dbcs-service-binding-sample-*.jar</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

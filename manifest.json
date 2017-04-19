@@ -1,0 +1,12 @@
+{
+    "runtime": {
+        "majorVersion": "8"
+    },
+    "command": "java -jar target/accs-dbcs-service-binding-sample-1.0.jar",
+    "release": {
+        "build": "27092016.1020",
+        "commit": "007",
+        "version": "0.0.2"
+    },
+    "notes": "notes related to release"
+}
