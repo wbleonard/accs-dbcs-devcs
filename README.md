@@ -117,39 +117,89 @@ You will also notice that the package command builds the zip artifact that requi
 
 - Create a New External Repository and set the URL to https://github.com/{your-github-id}/accs-dbcs-devcs.git. Optionally set the Description to something like **A repository to demonstrate continuous integration and deployment of a Java microservice that includes a database tier.**
 
-	![](https://github.com/wbleonard/accs-dbcs-devcs/blob/master/images/new_repository.png)
+	![](images/new_repository.png)
 
 - Create a New free-style Build Job named **Database DevOps**
 
- 	![](https://github.com/wbleonard/accs-dbcs-devcs/blob/master/images/new-job.png)
+ 	![](images/new-job.png)
 
 	- Under **Main**, set the JDK to **JDK 8**:
 		![](images/main.png)
 
 	- Under **Source Control**, select the accs-dbcs-devcs.git repository:
- 		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/source-control.png)
+ 		![](images/source-control.png)
 
 	- Under **Triggers** select Based on SCM polling schedule and set the Schedule to `*****`:
 	 
-		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/triggers.png)
+		![](images/triggers.png)
 
 	- Under **Environment** select Connect Oracle Maven Repository and enter your OTN credentials:
 	 
-		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/environment.png)
+		![](images/environment.png)
 
 	- Under **Build Steps** add an Invoke Maven 3 Build Step:
 	 
-		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/build-steps.png)	
+		![](images/build-steps.png)	
 
 	- Under **Post Build**, select Archive the Artifacts and set the Files to Archive to `**/target/*.zip`:
  
-		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/post-build.png)	
+		![](images/post-build.png)	
 
 	- **Save** and click **Build Now** to validate the build configuration:
 
 ### Set up Continuous Deployment
 
 - Create a new Deployment Configuration named **Database DevOps**
-- Create a new Deployment Target to the Application Container Cloud:
+	- Create a new Deployment Target to the Application Container Cloud:
  	![](images/new-job.png)
+	- Set the ACCS Runtime property to **Java ** and Subscription property to **Hourly**
+	- Select **Automatic** and **Deploy stable builds only**.
+	- Select Job **Database DevOps** and Artifact **target/accs-dbcs-service-binding-sample-1.0-ACCS.zip**:
+		![](images/deployment-configuration.png)
+- Save and Start the Database DevOps Deployment Configuration
+
+### Set up the Database
+
+In either a new or existing Database Cloud Service instance, let's create a new schema for this exercise:
+
+	```
+	SQL> CREATE USER DEVOPS IDENTIFIED BY DEVOPS;
+	
+	User created.
+	
+	SQL> GRANT CONNECT, RESOURCE, UNLIMITED TABLESPACE TO DEVOPS;
+	
+	Grant succeeded.
+	```
+
+### Configure the Application Container Cloud Service Bindings
+
+Now we need to bind the DatabaseDevOps Application Container Cloud instance to our Oracle Database Cloud instance. 
+
+ - Navigate to the DatabaseDevOps Application Container Cloud instance and select the Deployments tab. Then Add a Service Binding to the Database Cloud Service, selecting the name of the Service in which you created the DEVOPS user:
+	![](images/service-binding.png)
+
+- We also need to add a couple of Environment Variables to store the Oracle database username and password:
+	![](images/add-environment-variable.png)
+	![](images/add-environment-variable2.png)
+
+- Click **Apply Edits** which will apply the changes and restart the microservice:
+	![](images/apply-edits.png)
+
+### Test the Microservice
+
+Append **/appdev/products** to the end of the Application Container Cloud URL. For example:
+
+https://databasedevops-gse00001975.apaas.em2.oraclecloud.com/appdev/products
+
+	![](images/test.png)
+
+
+
+
+
+
+	
+
+
  
