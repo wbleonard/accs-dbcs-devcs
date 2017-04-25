@@ -60,11 +60,11 @@ public class Bootstrap {
     public static void main(String[] args) throws IOException {
         Logger.getLogger(Bootstrap.class.getName()).log(Level.INFO, "Starting application...");
         String connectDescriptor = System.getenv("DBAAS_DEFAULT_CONNECT_DESCRIPTOR");
-        String dbUser = System.getenv("PDB1_USER_NAME");
-        String dbPassword = System.getenv("PDB1_USER_PASSWORD");
+        String dbUser = System.getenv("DEVOPS_USER_NAME");
+        String dbPassword = System.getenv("DEVOPS_USER_PASSWORD");
         Logger.getLogger(Bootstrap.class.getName()).info("DBAAS_DEFAULT_CONNECT_DESCRIPTOR: " + connectDescriptor);
-        System.out.println("PDB1_USER_NAME: " + dbUser);
-        //System.out.println("PDB1_USER_PASSWORD: " + dbPassword);
+        System.out.println("DEVOPS_USER_NAME: " + dbUser);
+        //System.out.println("DEVOPS_USER_PASSWORD: " + dbPassword);
         Map<String, String> props = new HashMap<>();
         props.put("javax.persistence.jdbc.url", "jdbc:oracle:thin:@" + connectDescriptor);
         props.put("javax.persistence.jdbc.user", dbUser);

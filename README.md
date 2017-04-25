@@ -123,6 +123,9 @@ You will also notice that the package command builds the zip artifact that requi
 
  	![](https://github.com/wbleonard/accs-dbcs-devcs/blob/master/images/new-job.png)
 
+	- Under **Main**, set the JDK to **JDK 8**:
+		![](images/main.png)
+
 	- Under **Source Control**, select the accs-dbcs-devcs.git repository:
  		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/source-control.png)
 
@@ -143,7 +146,10 @@ You will also notice that the package command builds the zip artifact that requi
 		![](https://raw.githubusercontent.com/wbleonard/accs-dbcs-devcs/master/images/post-build.png)	
 
 	- **Save** and click **Build Now** to validate the build configuration:
-	
- 		![](https://raw.githubusercontent.com/OracleNATD/vendor-neutral-microservices/master/images/build-history.PNG)
 
+### Set up Continuous Deployment
 
+- Create a new Deployment Configuration named **Database DevOps**
+- Create a new Deployment Target to the Application Container Cloud:
+ 	![](images/new-job.png)
+ 
