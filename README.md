@@ -191,7 +191,6 @@ Now we need to bind the DatabaseDevOps Application Container Cloud instance to o
 Append **/appdev/products** to the end of the Application Container Cloud URL. For example:
 
 https://databasedevops-gse00001975.apaas.em2.oraclecloud.com/appdev/products
-
 	![](images/test.png)
 
 
