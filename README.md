@@ -124,9 +124,11 @@ You will also notice that the package command builds the zip artifact that requi
  	![](images/new-job.png)
 
 	- Under **Main**, set the JDK to **JDK 8**:
+	
 		![](images/main.png)
 
 	- Under **Source Control**, select the accs-dbcs-devcs.git repository:
+ 
  		![](images/source-control.png)
 
 	- Under **Triggers** select Based on SCM polling schedule and set the Schedule to `*****`:
@@ -155,7 +157,9 @@ You will also notice that the package command builds the zip artifact that requi
 	- Set the ACCS Runtime property to **Java ** and Subscription property to **Hourly**
 	- Select **Automatic** and **Deploy stable builds only**.
 	- Select Job **Database DevOps** and Artifact **target/accs-dbcs-service-binding-sample-1.0-ACCS.zip**:
+		
 		![](images/deployment-configuration.png)
+
 - Save and Start the Database DevOps Deployment Configuration
 
 ### Set up the Database
@@ -177,22 +181,28 @@ In either a new or existing Database Cloud Service instance, let's create a new 
 Now we need to bind the DatabaseDevOps Application Container Cloud instance to our Oracle Database Cloud instance. 
 
  - Navigate to the DatabaseDevOps Application Container Cloud instance and select the Deployments tab. Then Add a Service Binding to the Database Cloud Service, selecting the name of the Service in which you created the DEVOPS user:
+
 	![](images/service-binding.png)
 
 - We also need to add a couple of Environment Variables to store the Oracle database username and password:
+
 	![](images/add-environment-variable.png)
 	![](images/add-environment-variable2.png)
 
 - Click **Apply Edits** which will apply the changes and restart the microservice:
+
 	![](images/apply-edits.png)
 
 ### Test the Microservice
 
 Append **/appdev/products** to the end of the Application Container Cloud URL. For example:
 
-https://databasedevops-gse00001975.apaas.em2.oraclecloud.com/appdev/products
-	![](images/test.png)
+[https://databasedevops-gse00001975.apaas.em2.oraclecloud.com/appdev/products](https://databasedevops-gse00001975.apaas.em2.oraclecloud.com/appdev/products)
 
+![](images/test.png)
+
+## Database DevOps
+Now that our base application is set up, let's make a change that includes the database. For this example I will add a description field to the results.
 
 
 
